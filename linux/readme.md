@@ -8,5 +8,6 @@ Git Bash is a command-line interface (CLI) application for Windows that lets you
 ## VIRTUAL ENVIRONMENT:
 HYPERVISEOR:
 oracle vm virtual box
+
 CLOUD:
 vagrant
