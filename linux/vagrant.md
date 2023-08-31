@@ -8,10 +8,10 @@ Vagrant is a source-available software product for building and maintaining port
 gitbash
   
 ## SIMPLE STEPS
-create folder               -place vagrant file in it
-use command vagrant up    - to start vm
-use vagrant ssh             - to login into vm and start working
-use vagrant halt or destroy - to poweroff or delete the vm
+- create folder               -place vagrant file in it
+- use command vagrant up    - to start vm
+- use vagrant ssh             - to login into vm and start working
+- use vagrant halt or destroy - to poweroff or delete the vm
   
 ## USEFULL COMMANDS:
     vagrant init directory
