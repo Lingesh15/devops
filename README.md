@@ -22,9 +22,10 @@ I'm a third-year undergrad student that is interested in devops and fultter appl
 The main objective of this repository is to improve deviops abilities using technologies like Linux, AWS, Scripting, Jenkins, Ansible, Docker, K8s, Projects, and ChatGPT from a complete novice to an expert in the industry.
 
 
-[![My Skills](https://skills.thijs.gg/icons?i=java,docker,kubernetes,aws,jenkins,ansible,linux,maven&theme=light)](https://skills.thijs.gg)
+[![My Skills](https://skills.thijs.gg/icons?i=java,docker,kubernetes,aws,jenkins,ansible,linux,maven,python&theme=light)](https://skills.thijs.gg)
 # Tech Stack
 - linux
+- python
 - vagrant
 - AWS
 - Jenkins
