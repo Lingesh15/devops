@@ -34,7 +34,7 @@ The main objective of this repository is to improve devops abilities using techn
 - kubernetes
 - maven
 
-  ## Prerequisites
+## Prerequisites
 
   Windows Tools:
   
