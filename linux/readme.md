@@ -11,3 +11,7 @@ oracle vm virtual box
 
 CLOUD:
 vagrant
+
+## LINUX FLAVOURS:
+- Centos7
+- ubuntu jammy
