@@ -202,7 +202,9 @@ Starting the firewall and allowing the port 5672 to access rabbitmq
 
 # 4.TOMCAT SETUP
 
-Login to the tomcat vm *$ vagrant ssh app01*
+Login to the tomcat vm 
+    
+    $ vagrant ssh app01
 
 Verify Hosts entry, if entries missing update the it with IP and hostnames
 
