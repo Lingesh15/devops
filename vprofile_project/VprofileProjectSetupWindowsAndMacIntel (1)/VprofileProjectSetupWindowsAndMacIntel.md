@@ -42,7 +42,7 @@ INFO: All the vm’s hostname and /etc/hosts file entries will be automatically 
 
 Setup should be done in below mentioned order
 
-## MySQL (Database SVC) Memcache
+# MySQL (Database SVC) Memcache
 
 **1. MYSQL Setup**
 
@@ -114,12 +114,9 @@ Reload privilege tables now? [Y/n]**Y**
 Set DB name and users.
 
     mysql -u root -padmin123
-
-*mysql> create database accounts*
-
-*mysql> grant all privileges on accounts.\* TO 'admin'@'%' identified by 'admin123'; mysql> FLUSH PRIVILEGES;*
-
-*mysql> exit;*
+    mysql> create database accounts
+    mysql> grant all privileges on accounts.\* TO 'admin'@'%' identified by 'admin123'; mysql> FLUSH PRIVILEGES;
+    mysql> exit;
 
 Download Source code & Initialize Database.
 
@@ -142,7 +139,7 @@ Starting the firewall and allowing the mariadb to access from port no. 3306
      firewall-cmd --reload
      systemctl restart mariadb
 
-**2.MEMCACHE SETUP**
+# 2.MEMCACHE SETUP
 
 Install, start & enable memcache on port 11211
 
@@ -162,7 +159,7 @@ Starting the firewall and allowing the port 11211 to access memcache
     firewall-cmd --runtime-to-permanent
     sudo memcached -p 11211 -U 11111 -u memcached -d
 
-**3.RABBITMQ SETUP**
+# 3.RABBITMQ SETUP
 
 Login to the RabbitMQ vm
 
@@ -203,7 +200,7 @@ Starting the firewall and allowing the port 5672 to access rabbitmq
     sudo systemctl enable rabbitmq-server
     sudo systemctl status rabbitmq-server
 
-**4.TOMCAT SETUP**
+# 4.TOMCAT SETUP
 
 Login to the tomcat vm *$ vagrant ssh app01*
 
@@ -253,15 +250,10 @@ Create tomcat service file
 
 Update the file with below content
 
-[Unit] Description=Tomcat After=network.target
-
-[Service]
-
-User=tomcat
-
-WorkingDirectory=/usr/local/tomcat Environment=JRE\_HOME=/usr/lib/jvm/jre Environment=JAVA\_HOME=/usr/lib/jvm/jre Environment=CATALINA\_HOME=/usr/local/tomcat Environment=CATALINE\_BASE=/usr/local/tomcat ExecStart=/usr/local/tomcat/bin/catalina.sh run ExecStop=/usr/local/tomcat/bin/shutdown.sh SyslogIdentifier=tomcat-%i
-
-[Install] WantedBy=multi-user.target
+    [Unit] Description=Tomcat After=network.target
+    [Service] User=tomcat
+    WorkingDirectory=/usr/local/tomcat Environment=JRE\_HOME=/usr/lib/jvm/jre Environment=JAVA\_HOME=/usr/lib/jvm/jre Environment=CATALINA\_HOME=/usr/local/tomcat Environment=CATALINE\_BASE=/usr/local/tomcat ExecStart=/usr/local/tomcat/bin/catalina.sh run ExecStop=/usr/local/tomcat/bin/shutdown.sh SyslogIdentifier=tomcat-%i
+    [Install] WantedBy=multi-user.target
 
 Reload systemd files
 
@@ -280,7 +272,7 @@ Enabling the firewall and allowing port 8080 to access the tomcat
     firewall-cmd --zone=public --add-port=8080/tcp --permanent
     firewall-cmd --reload
 
-**CODE BUILD & DEPLOY (app01)**
+# CODE BUILD & DEPLOY (app01)
 
 Download Source code
 
@@ -292,7 +284,7 @@ Update configuration
     vim src/main/resources/application.properties
     Update file with backend server details
 
-**Build code**
+# Build code
 
 *Run below command inside the repository (vprofile-project)*
 
@@ -307,7 +299,7 @@ Deploy artifact
     chown tomcat.tomcat usr/local/tomcat/webapps -R
     systemctl restart tomcat
 
-**5.NGINX SETUP**
+# 5.NGINX SETUP
 
 Login to the Nginx vm
 
@@ -332,21 +324,15 @@ Create Nginx conf file
 
 Update with below content
 
-*upstream vproapp {*
+    upstream vproapp {
+    server app01:8080;
+    }
 
-*server app01:8080;*
-
-*}*
-
-*server {*
-
-*listen 80;*
-
-*location / {*
-
-*proxy\_pass http://vproapp; }*
-
-*}*
+    server {
+    listen 80;
+    location / {
+    proxy\_pass http://vproapp; }
+    }
 
 Remove default nginx conf
 
