@@ -92,11 +92,3 @@ The main objective of this repository is to improve devops abilities using techn
       brew install --cask sublime-text
       brew install awscli
 
-
-
-
-## 🔗 Links
-
-
-bookmark my blog-page for regular updates:
-https://lingesh15.github.io/blog-leetcode/
