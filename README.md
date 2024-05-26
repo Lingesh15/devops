@@ -1,4 +1,4 @@
-# DEVOPS-BEGINNERS TO ADVANCED WITH PROJECTS
+# DEVOPS-PROJECTS
 
 This repository serves as a platform to display all of my DevOps-related efforts.
 
